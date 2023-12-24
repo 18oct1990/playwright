@@ -7,6 +7,7 @@
     await page.click("#login2")
     const un= await page.locator("//input[@id='loginusername']")
     await un.fill("admin")
+    console.log(typeof(un))
 
 
    //Negative test case for soft assertion
