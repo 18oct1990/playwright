@@ -50,13 +50,16 @@ test ("Fetch data from all pages", async ({page})=>{
 
     for(let i=0; i<pageCount; i++)
     {
-        const pageNumber =await pages.nth(i)
-        pageNumber.click()
+            if(i>0)
+            {
+            const pageNumber =await pages.nth(i)
+            pageNumber.click()
+            }
 
 
 
             for(let i=0;i<rowsCount-1;i++)
-        {
+             {
                 const row =rows.nth(i)              //Iterating rows one by one
                 const cells = row.locator("td")     //Finding all cells within the row
 
@@ -66,11 +69,11 @@ test ("Fetch data from all pages", async ({page})=>{
                     const cell =cells.nth(j)                //Iterating cell one by one
                     console.log (await cell.textContent())  //Printing cell value one by one
                 }
-        }
+             }
 
         
 
-        await page.waitForTimeout(1000)
+            await page.waitForTimeout(1000)
 
 
     }
